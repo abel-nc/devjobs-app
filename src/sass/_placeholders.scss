@@ -1,0 +1,73 @@
+// BACKGROUNDS
+%bg-primary {
+    background-color: rgb(241, 241, 241);
+    /* background-color: rgb(25, 32, 45) */
+
+}
+
+%bg-secondary {
+    background-color: #fff;
+    /* background-color: rgb(38, 47, 63); */
+}
+
+// FONTS 
+%text-primary {
+    color: rgb(131, 150, 168);
+    font-weight: 400;
+}
+
+%text-secondary {
+    color: black;
+    /* color: #fff; */
+    font-weight: 700;
+}
+
+// BUTTON 
+%button {
+    font-family: $font-primary;
+    display: block;
+    border: none;
+    border-radius: 5px;
+    padding: 1rem 0;
+    background-color: $color-accent;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 0.7px;
+    cursor: pointer;
+    transition: opacity 120ms ease;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+
+// ---- ---- ---- ---- ---- DARK STYLES ---- ---- ---- ---- ----
+
+main.dark {
+    %bg-primary {
+        background-color: rgb(25, 32, 45);
+    }
+    
+    %bg-secondary {
+        background-color: rgb(38, 47, 63);
+    }
+
+    %text-secondary {
+        color: #fff;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    main.overlay {
+        %bg-primary {
+            background-color: rgb(105, 105, 105);
+        }
+    }
+
+    main.dark.overlay {
+        %bg-primary {
+            background-color: rgb(12, 14, 20);
+        }
+    }
+}

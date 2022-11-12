@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Route, Routes, useNavigate } from 'react-router-dom';
+import Header from './components/Header';
+import Home from './components/Home';
+import JobPage from './components/JobPage';
+import PageNotFound from './components/PageNotFound';
+import { useGlobalContext } from './context';
+import './main.scss';
 
-function App() {
+const App = () => {
+
+  const { isDarkMode, isFiltersOpen, closeFiltersModal } = useGlobalContext()
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main onClick={closeFiltersModal} className={`${isDarkMode ? 'dark' : ''} ${isFiltersOpen ? 'overlay' : ''}`}>
+      <Header />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/jobs/:id' element={<JobPage />} />
+        <Route path='*' element={<PageNotFound />} />
+      </Routes>
+    </main>
   );
 }
 
